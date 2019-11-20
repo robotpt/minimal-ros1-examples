@@ -1,6 +1,8 @@
 #!/usr/bin/env python
+
 import rospy
 from example.msg import Message
+
 
 class Subscriber:
     def __init__(self):

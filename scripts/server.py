@@ -1,7 +1,5 @@
 #!/usr/bin/env python
-## Simple demo of a rospy service that add two integers
 
-# import the AddTwoInts service
 from example.srv import Instructions, InstructionsResponse
 import rospy 
 import random
