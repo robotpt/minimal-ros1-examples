@@ -1,0 +1,4 @@
+string content
+string[] options
+---
+string result
