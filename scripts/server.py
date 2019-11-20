@@ -1,23 +1,35 @@
 #!/usr/bin/env python
 ## Simple demo of a rospy service that add two integers
 
-NAME = 'instructions_server'
-
 # import the AddTwoInts service
 from example.srv import Instructions, InstructionsResponse
 import rospy 
 import random
 
-def follow_instructions(request):
-    response = InstructionsResponse()
-    response.result = raw_input(request.content)
-    return response
 
-def instructions_server():
-    rospy.init_node(NAME)
-    s = rospy.Service('instructions', Instructions, follow_instructions)
+class Server:
 
-    rospy.spin()
+    def __init__(
+            self, 
+            node_name='server',
+            service_topic='instructions',
+            is_user_input=False,
+    ):
+        rospy.init_node(node_name)
+        self._service = rospy.Service(service_topic, Instructions, self._follow_instructions)
+        self._is_user_input = is_user_input
+
+    def _follow_instructions(self, request):
+        rospy.loginfo(rospy.get_caller_id() + "I received '%s'" % request.content)
+        response = InstructionsResponse()
+        if self._is_user_input:
+            response.result = raw_input(request.content + "\n > ")
+        else:
+            response.result = random.choice(['Yup', 'Yessir', 'Yuppers', 'Yeah', 'Si'])
+            rospy.sleep(1)
+        return response
+
 
 if __name__ == "__main__":
-    instructions_server()
+    Server()
+    rospy.spin()
