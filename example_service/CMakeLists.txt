@@ -4,11 +4,18 @@ project(example_service)
 
 find_package(catkin REQUIRED COMPONENTS
   rospy
+  std_msgs
   message_generation
 )
 add_service_files(
   FILES
   Instructions.srv
 )
-generate_messages()
-catkin_package()
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+catkin_package(
+  CATKIN_DEPENDS
+  message_runtime
+)
