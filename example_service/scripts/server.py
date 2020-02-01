@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from example.srv import Instructions, InstructionsResponse
+from example_service.srv import Instructions, InstructionsResponse
 import rospy 
 import random
 

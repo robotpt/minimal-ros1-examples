@@ -1,3 +1,0 @@
-<launch>
-  <node name="talker" pkg="example" type="publisher.py" output="screen"/>
-</launch>

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from example.msg import Message
+from example_topic.msg import Message
 
 
 class Publisher:

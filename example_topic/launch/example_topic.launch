@@ -1,0 +1,5 @@
+<launch>
+  <node name="publisher" pkg="example_topic" type="publisher.py" output="screen"/>
+  
+  <node name="subscriber" pkg="example_topic" type="subscriber.py" output="screen"/>
+</launch>

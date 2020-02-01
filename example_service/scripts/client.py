@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import rospy
-from example.srv import Instructions, InstructionsRequest
+from example_service.srv import Instructions, InstructionsRequest
 
 
 class Client:
