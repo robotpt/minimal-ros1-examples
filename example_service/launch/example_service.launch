@@ -1,5 +1,4 @@
 <launch>
   <node name="client" pkg="example_service" type="client.py" output="screen"/>
-  
   <node name="server" pkg="example_service" type="server.py" output="screen"/>
 </launch>
