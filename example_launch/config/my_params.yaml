@@ -1,0 +1,3 @@
+my/param/str: "set from param file"
+my/param/int: 1
+my/param/float: 1.0

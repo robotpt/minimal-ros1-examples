@@ -1,0 +1,11 @@
+<launch>
+
+    <!-- Include another launch file and pass args defined in this file in -->
+    <arg name="is_launch_other_file" value="true"/>
+    <include file="$(find example_launch)/launch/test_params.launch" pass_all_args="true"/>
+
+    <!-- Override a parameter definde in the include above
+         Note that parameters are overridden by their last call -->
+    <param name="from_launchfile/my/param/is_overridden" type="bool" value="true"/>
+
+</launch>

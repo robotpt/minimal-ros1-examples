@@ -1,0 +1,17 @@
+<launch>
+
+    <!-- Load parameters from a yaml file -->
+    <arg name="yaml_file_ns" value="from_yaml_file"/>
+    <rosparam file="$(find example_launch)/config/my_params.yaml" command="load" ns="$(arg yaml_file_ns)"/>
+    <node pkg="example_launch" type="test_params.py" name="test_params" output="screen" args="$(arg yaml_file_ns)"/>
+
+    <!-- This parameter will be overridden if you run test_include.launch -->
+    <param name="from_launchfile/my/param/is_overridden" type="bool" value="false"/>
+
+    <!-- The arg 'is_launch' will be overridden if you run test_include.launch and the other file will run -->
+    <arg name="is_launch_other_file" default="false"/>
+    <group if="$(arg is_launch_other_file)">
+        <node pkg="example_launch" type="other_file.py" name="other_file" output="screen"/>
+    </group>
+
+</launch>
